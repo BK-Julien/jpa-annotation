@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: data-jpa
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: username
+    password: password
+    url: jdbc:postgresql://localhost:8001/db_data_jpa
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+    show-sql: true
+server:
+  port: 8000
