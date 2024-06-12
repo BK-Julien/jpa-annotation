@@ -10,6 +10,8 @@ import dev.bkjulien.data_jpa.repositories.PublisherRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,5 +40,15 @@ public class BookServiceImpl implements BookService {
         book.setReview(reviewModel);
 
         return bookRepository.save(book);
+    }
+
+    @Override
+    public List<BookModel> getBooks() {
+        return bookRepository.findAll();
+    }
+
+    @Override @Transactional
+    public void deleteBook(UUID id) {
+        bookRepository.deleteById(id);
     }
 }
