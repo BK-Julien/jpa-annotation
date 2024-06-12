@@ -11,7 +11,9 @@ WORKDIR /app
 #copié notre livrable qui est l'artefact
 COPY --from=build /app/target/*.jar ./imc-app.jar
 #exposer hors du conteneur afin qu'in soit accessible de l'exterieur
-EXPOSE 8080 # c'est le port exposer par mon application
+#c'est le port exposer par mon application
+EXPOSE 8080
 #commande qui va executé nore artefact qui est un fichier bianaire
 ENTRYPOINT ["java", "-jar", "imc-app.jar"]
-#docker build -t "nomImageGenerer:version" . : cette commande pourra creer notre image
+#docker build -t "nom_de_mon_repo_sur_docker_hub/nomImageGenerer:version" . :
+#cette commande pourra creer notre image

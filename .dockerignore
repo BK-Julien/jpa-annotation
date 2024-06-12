@@ -1,4 +1,4 @@
 #IGNORE ALL
 *
 #keep
-!*.jar
+!target/*.jar
