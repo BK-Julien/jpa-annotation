@@ -1,0 +1,25 @@
+services:
+  postgres_data_jpa:
+    #c'est la version 15 de postgres actuelle compatible avec flyway
+    image: 'postgres:15.6-alpine'
+    container_name: 'postgres_data_jpa'
+    environment:
+      - 'POSTGRES_DB=db_data_jpa'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=username'
+      - 'PGDATA=/data_jpa/postgres'
+    ports:
+      - '8001:5432'
+    restart: 'unless-stopped'
+    networks:
+      - 'network_data_jpa'
+    volumes:
+      - 'data_data_jpa:/data_jpa/postgres'
+
+
+volumes:
+  data_data_jpa:
+
+networks:
+  network_data_jpa:
+    driver: 'bridge'
