@@ -1,0 +1,8 @@
+package dev.bkjulien.data_jpa.services;
+
+import dev.bkjulien.data_jpa.dtos.BookDTO;
+import dev.bkjulien.data_jpa.models.BookModel;
+
+public interface BookService {
+    BookModel saveBook(BookDTO bookDTO);
+}
